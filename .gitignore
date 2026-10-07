@@ -9,3 +9,4 @@ data/transformed/*
 !data/raw/.gitkeep
 !data/frames/.gitkeep
 !data/transformed/.gitkeep
+data/splits/
