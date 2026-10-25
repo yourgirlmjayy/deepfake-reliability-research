@@ -11,3 +11,4 @@ data/transformed/*
 !data/transformed/.gitkeep
 data/splits/
 models/
+dlib_tools/
