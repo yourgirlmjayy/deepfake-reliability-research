@@ -39,3 +39,22 @@ def screenshot_like(image: Image.Image, scale: float = 0.72, jpeg_quality: int =
     """
     transformed = resize_roundtrip(image, scale=scale)
     return jpeg_compress(transformed, quality=jpeg_quality)
+
+TRANSFORMATIONS = {
+    "jpeg_q30": lambda image: jpeg_compress(
+        image,
+        quality=30,
+    ),
+    "crop_80": lambda image: center_crop(
+        image,
+        crop_fraction=0.80,
+    ),
+    "resize_50": lambda image: resize_roundtrip(
+        image,
+        scale=0.50,
+    ),
+    "blur_r2": lambda image: gaussian_blur(
+        image,
+        radius=2.0,
+    ),
+}
