@@ -10,3 +10,4 @@ data/transformed/*
 !data/frames/.gitkeep
 !data/transformed/.gitkeep
 data/splits/
+models/

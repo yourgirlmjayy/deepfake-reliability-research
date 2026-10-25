@@ -7,4 +7,3 @@ scikit-learn
 torch
 torchvision
 jupyter
-tqdm
