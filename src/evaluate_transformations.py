@@ -21,10 +21,22 @@ TRANSFORMED_ROOT = Path(
 
 CONDITIONS = {
     "clean": CLEAN_ROOT,
+
+    "jpeg_q70": TRANSFORMED_ROOT / "jpeg_q70",
+    "jpeg_q50": TRANSFORMED_ROOT / "jpeg_q50",
     "jpeg_q30": TRANSFORMED_ROOT / "jpeg_q30",
+
+    "crop_90": TRANSFORMED_ROOT / "crop_90",
     "crop_80": TRANSFORMED_ROOT / "crop_80",
+    "crop_70": TRANSFORMED_ROOT / "crop_70",
+
+    "resize_75": TRANSFORMED_ROOT / "resize_75",
     "resize_50": TRANSFORMED_ROOT / "resize_50",
+    "resize_30": TRANSFORMED_ROOT / "resize_30",
+
+    "blur_r1": TRANSFORMED_ROOT / "blur_r1",
     "blur_r2": TRANSFORMED_ROOT / "blur_r2",
+    "blur_r4": TRANSFORMED_ROOT / "blur_r4",
 }
 
 CHECKPOINTS = {
@@ -266,4 +278,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
