@@ -1,9 +1,9 @@
 from pathlib import Path
 import cv2
 
-VIDEO_ROOT = Path("data/splits")
-FRAME_ROOT = Path("data/frames")
-NUM_FRAMES = 5
+VIDEO_ROOT = Path("../deepfake_reliability_project/data/splits")
+FRAME_ROOT = Path("../deepfake_reliability_project/data/frames")
+NUM_FRAMES = 32
 
 for split in ["train", "val", "test"]:
     for label in ["real", "fake"]:
