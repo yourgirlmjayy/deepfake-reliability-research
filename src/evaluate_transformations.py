@@ -151,15 +151,59 @@ def evaluate_condition(
             )
 
     metrics = calculate_metrics(
-        actual_labels,
-        fake_probabilities,
-        fake_index,
+    actual_labels,
+    fake_probabilities,
+    fake_index,
     )
+
+    # Convert fake probabilities into predicted class labels.
+    # "fake" is treated as the positive class.
+    predicted_labels = [
+        fake_index if probability >= 0.5
+        else 1 - fake_index
+        for probability in fake_probabilities
+    ]
+
+    true_positives = sum(
+        actual == fake_index and predicted == fake_index
+        for actual, predicted in zip(
+            actual_labels,
+            predicted_labels,
+        )
+    )
+
+    false_negatives = sum(
+        actual == fake_index and predicted != fake_index
+        for actual, predicted in zip(
+            actual_labels,
+            predicted_labels,
+        )
+    )
+
+    false_positives = sum(
+        actual != fake_index and predicted == fake_index
+        for actual, predicted in zip(
+            actual_labels,
+            predicted_labels,
+        )
+    )
+
+    true_negatives = sum(
+        actual != fake_index and predicted != fake_index
+        for actual, predicted in zip(
+            actual_labels,
+            predicted_labels,
+        )
+    )
+
+    metrics["true_positives"] = true_positives
+    metrics["true_negatives"] = true_negatives
+    metrics["false_positives"] = false_positives
+    metrics["false_negatives"] = false_negatives
 
     metrics["loss"] = (
         total_loss / len(dataset)
     )
-
     return metrics
 
 
@@ -234,6 +278,10 @@ def main():
                 "precision": metrics["precision"],
                 "recall": metrics["recall"],
                 "f1": metrics["f1"],
+                "true_positives": metrics["true_positives"],
+                "true_negatives": metrics["true_negatives"],
+                "false_positives": metrics["false_positives"],
+                "false_negatives": metrics["false_negatives"],
                 "roc_auc": metrics["roc_auc"],
                 "loss": metrics["loss"],
             })
@@ -263,6 +311,10 @@ def main():
                 "precision",
                 "recall",
                 "f1",
+                "true_positives",
+                "true_negatives",
+                "false_positives",
+                "false_negatives",
                 "roc_auc",
                 "loss",
             ],
