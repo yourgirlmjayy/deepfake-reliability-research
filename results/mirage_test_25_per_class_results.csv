@@ -1,0 +1,7 @@
+model,version,dataset,images_per_class,accuracy,precision,recall,f1,roc_auc,true_positives,true_negatives,false_positives,false_negatives,loss
+efficientnet_b0,baseline,Mirage-Test Human aligned faces,25,0.42,0.0,0.0,0.0,0.1456,0,21,4,25,2.491044598221779
+efficientnet_b0,augmented_v1,Mirage-Test Human aligned faces,25,0.46,0.25,0.04,0.06896551724137932,0.2816,1,22,3,24,1.8976542460918426
+efficientnet_b0,augmented_v2,Mirage-Test Human aligned faces,25,0.46,0.375,0.12,0.18181818181818182,0.4576,3,20,5,22,3.067727995608002
+resnet50,baseline,Mirage-Test Human aligned faces,25,0.5,0.0,0.0,0.0,0.32,0,25,0,25,3.6234012265503406
+resnet50,augmented_v1,Mirage-Test Human aligned faces,25,0.5,0.0,0.0,0.0,0.3008,0,25,0,25,1.896598151922226
+resnet50,augmented_v2,Mirage-Test Human aligned faces,25,0.5,0.5,0.12,0.1935483870967742,0.384,3,22,3,22,3.755486268387176
